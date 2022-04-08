@@ -1,22 +1,24 @@
 <script context="module">
     import r from '$lib/helpers/req'
     export const load = async () => {
-        const {blog} = await r.getAllPosts()
-        console.log('blog loading : ', blog)
+        const {blog, url} = await r.getAllPosts()
+        console.log('blog loading : ', blog, url)
         return {
             props: {
                 blog,
+                arr: []
             }
         }
     }
 </script>
 <script>
     export let blog = []
+    export let arr = []
 </script>
 <h1>Index du blog</h1>
-{#if blog.length > 0}
+{#if arr.length > 0}
     <ul>
-     {#each blog as {id, title}}
+     {#each arr as {id, title}}
           <li><a sveltekit:prefetch href="/blog/{id}" {title}>{title}</a></li>
      {/each}
     </ul>

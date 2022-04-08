@@ -23,7 +23,10 @@ const getAllPosts = async () => {
     })
     const {data: {blog}} = await res.json()
     console.log('getAllPosts', {url},{blog})
-    return {blog}
+    return {
+        blog,
+        url
+    }
 }
 
 const getPostById = async (id) => {
