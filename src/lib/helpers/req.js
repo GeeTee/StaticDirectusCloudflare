@@ -3,7 +3,7 @@ import { DIRECTUS_URL } from './Env'
 const url = f.getMyEnvVar(DIRECTUS_URL)
 
 const getAllPosts = async () => {
-    const res = await fetch('https://2yufqfqe.directus.app/graphql', {
+    const res = await fetch(`${url}/graphql`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
@@ -25,7 +25,6 @@ const getAllPosts = async () => {
     console.log('getAllPosts', {url},{blog})
     return {
         blog,
-        url
     }
 }
 

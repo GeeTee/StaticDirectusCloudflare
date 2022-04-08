@@ -1,25 +1,8 @@
 <script context="module">
     import r from '$lib/helpers/req'
     export const load = async ({fetch}) => {
-        const res = await fetch('https://2yufqfqe.directus.app/graphql', {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            query: `
-            query {
-                blog  (filter: {status: {_eq: "published"}}) {
-                    id
-                    title
-                    date_created
-                    date_updated
-                }
-            }
-            `
-        })
-    })
-    const {data: {blog}} = await res.json()
+        const {blog} = await r.getAllPosts()
+        console.log('loading', blog)
         return {
             props: {
                 blog
