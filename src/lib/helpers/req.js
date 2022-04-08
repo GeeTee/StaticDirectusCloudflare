@@ -30,7 +30,7 @@ const getAllPosts = async () => {
 }
 
 const getPostById = async (id) => {
-    const res = await fetch(`${url}/graphql`, {
+    const res = await fetch('https://2yufqfqe.directus.app/graphql', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
