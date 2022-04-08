@@ -1,11 +1,10 @@
 <script context="module">
     import r from '$lib/helpers/req'
     export const load = async () => {
-        const {blog, url} = await r.getAllPosts()
-        console.log('blog loading : ', blog, url)
+        // const {blog, url} = await r.getAllPosts()
+        // console.log('blog loading : ')
         return {
             props: {
-                blog,
                 arr: []
             }
         }
