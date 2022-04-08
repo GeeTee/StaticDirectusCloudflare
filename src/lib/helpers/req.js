@@ -22,7 +22,7 @@ const getAllPosts = async () => {
         })
     })
     const {data: {blog}} = await res.json()
-    // console.log('getAllPosts', {url},{blog})
+    console.log('getAllPosts', {url},{blog})
     return {blog}
 }
 
