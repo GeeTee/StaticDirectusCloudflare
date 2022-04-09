@@ -1,6 +1,5 @@
-import f from './scripts'
 import { DIRECTUS_URL } from './Env'
-const url = f.getMyEnvVar(DIRECTUS_URL)
+const url = DIRECTUS_URL
 
 const getAllPosts = async () => {
     const res = await fetch(`${url}/graphql`, {
