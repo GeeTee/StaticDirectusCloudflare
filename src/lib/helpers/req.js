@@ -21,7 +21,7 @@ const getAllPosts = async () => {
         })
     })
     const {data: {blog}} = await res.json()
-    console.log('getAllPosts', {url},{blog})
+    // console.log('getAllPosts', {url},{blog})
     return {
         blog,
     }
@@ -52,7 +52,7 @@ const getPostById = async (id) => {
     })
     const {data: {blog_by_id}} = await res.json()
     const item = {...blog_by_id}
-    // console.log('getPostById', {id},{item})
+    console.log('getPostById', {id},item)
     return {
         item,
     }

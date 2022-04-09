@@ -2,7 +2,7 @@
     import r from '$lib/helpers/req'
     export const load = async ({fetch}) => {
         const {blog} = await r.getAllPosts()
-        console.log('loading', blog)
+        // console.log('loading', blog)
         return {
             props: {
                 blog
