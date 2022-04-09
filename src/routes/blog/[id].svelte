@@ -7,7 +7,6 @@
     $: id = $page.params.id
     const getItem = async (id) => {
         const {item} = await r.getPostById(id)
-        console.log('expected : ', item)
         return item
     }
     
