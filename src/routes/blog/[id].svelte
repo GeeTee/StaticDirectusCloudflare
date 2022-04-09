@@ -2,24 +2,17 @@
     import r from '$lib/helpers/req'
     export const load = async ({params}) => {
         const {item} = await r.getPostById(params.id)
-        console.log({item})
+        // console.log({item})
         return {
             props: {
                 item
             }
         }
     }
-
 </script>
 <script>
-    import { page } from "$app/stores";
-    
     export let item = {}
     import CreatedUpdatedDates from "$lib/partials/dates/CreatedUpdatedDates.svelte";
-    // console.log($page)
-    $: id = $page.params.id
-
-    
 </script>
 {#if Object.keys(item).length > 0}
      <article>
