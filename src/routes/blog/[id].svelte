@@ -1,8 +1,7 @@
 <script context="module">
-    import r from '$lib/helpers/req'
-    export const load = async ({params}) => {
-        const {item} = await r.getPostById(params.id)
-        // console.log({item})
+    export const load = async ({fetch, params}) => {
+        const {item} = await (await fetch(`/api/blog/${params.id}`)).json()
+        // console.log('laoding item:', item)
         return {
             props: {
                 item

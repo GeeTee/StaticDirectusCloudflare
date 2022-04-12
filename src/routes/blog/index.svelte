@@ -1,7 +1,6 @@
 <script context="module">
-    import r from '$lib/helpers/req'
     export const load = async ({fetch}) => {
-        const {blog} = await r.getAllPosts()
+        const {blog} = await (await fetch('/api/blog')).json()
         // console.log('loading', blog)
         return {
             props: {
@@ -12,6 +11,7 @@
 </script>
 <script>
     export let blog = []
+    console.log('expected blog', blog)
 </script>
 <h1>Index du blog</h1>
 {#if blog.length > 0}
