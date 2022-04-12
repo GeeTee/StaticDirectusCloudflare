@@ -11,20 +11,21 @@
 </script>
 <script>
     export let item = {}
+    import Article from "$lib/partials/dom/Article.svelte";
     import CreatedUpdatedDates from "$lib/partials/dates/CreatedUpdatedDates.svelte";
 </script>
 {#if Object.keys(item).length > 0}
-     <article>
-         <header>
-             <h1>{item.title}</h1>
-         </header>
-         <div>
-             {@html item.html}
-         </div>
-         <footer>
-             <CreatedUpdatedDates date_created={item.date_created} date_updated={item.date_updated} />
-         </footer>
-     </article> 
+    <Article>
+        <svelte:fragment slot="header">
+            <h1>{item.title}</h1>
+        </svelte:fragment>
+
+        {@html item.html}
+
+        <svelte:fragment slot="footer">
+            <CreatedUpdatedDates date_created={item.date_created} date_updated={item.date_updated} />
+        </svelte:fragment>
+    </Article> 
 {:else}
     on a pas
 {/if}
