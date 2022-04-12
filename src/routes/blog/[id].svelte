@@ -5,18 +5,26 @@
         console.log('laoding item:', item, {blog})
         return {
             props: {
-                item
+                item,
+                blog
             }
         }
     }
 </script>
 <script>
     export let item = {}
+    export let blog = []
     import Article from "$lib/partials/dom/Article.svelte";
     import CreatedUpdatedDates from "$lib/partials/dates/CreatedUpdatedDates.svelte";
+
+    let pagination = {
+    arr: blog,
+    categ: 'blog',
+    }
+
 </script>
 {#if Object.keys(item).length > 0}
-    <Article>
+    <Article {pagination} itemId={item.id} >
         <svelte:fragment slot="header">
             <h1>{item.title}</h1>
         </svelte:fragment>

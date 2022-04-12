@@ -23,16 +23,16 @@
     const goToArticle = (i, c) => {
         // console.log('goToArticle', {i}, {c}, typeof c)
         if (typeof c === 'string') {
-            console.log('goToArticle string', {i}, {c})
-            goto(`/${categ}/${arr[i].slug}?itemId=${arr[i].id}`)
+            // console.log('goToArticle string', {i}, {c})
+            goto(`/${categ}/${arr[i].id}`)
         }
         if (typeof categ === 'object' && Object.keys(categ).length === 2) {
-            console.log('goToArticle object', {i}, {c})
-            goto(`/${categ.link}/${arr[i].slug}?itemId=${arr[i].id}`)
+            // console.log('goToArticle object', {i}, {c})
+            goto(`/${categ.link}/${arr[i].id}`)
         }
         if (typeof categ === 'object' && Object.keys(categ).length === 3 && categ.subCategories === 'yes') {
-            console.log('goToArticle object subCategories', {i}, {c})
-            goto(`/${categ.link}/${arr[i].type}/${arr[i].slug}?itemId=${arr[i].id}`)
+            // console.log('goToArticle object subCategories', {i}, {c})
+            goto(`/${categ.link}/${arr[i].type}/${arr[i].id}`)
         }
     }
 </script>
@@ -51,18 +51,27 @@
     {#if itemId && length > 0}
  
             {#if idx === 0 && length >= 2}
-                <span class="button" on:click={goToArticle(idx + 1, categ)}>{arr[idx + 1].title} &raquo;</span>
+                <span class="button" on:click={() => goToArticle(idx + 1, categ)}>{arr[idx + 1].title} &raquo;</span>
             {/if}
 
             {#if idx > 0 && length > 2 && idx < length - 1}
                 <span class="button">
-                <span on:click={goToArticle(idx - 1, categ)}>&laquo; {arr[idx - 1].title}</span> &nbsp; | &nbsp; <span on:click={goToArticle(idx + 1, categ)}>{arr[idx + 1].title} &raquo;</span>
+                <span on:click={() => goToArticle(idx - 1, categ)}>&laquo; {arr[idx - 1].title}</span> &nbsp; | &nbsp; <span on:click={() => goToArticle(idx + 1, categ)}>{arr[idx + 1].title} &raquo;</span>
                 </span>
             {/if}
 
             {#if  idx === length - 1}
-                <span class="button" on:click={goToArticle(idx - 1, categ)}>&laquo; {arr[idx - 1].title}</span>
+                <span class="button" on:click={() => goToArticle(idx - 1, categ)}>&laquo; {arr[idx - 1].title}</span>
             {/if}
     {/if}
 </div>
 {/if}
+
+<style>
+    .buttons {
+        padding: 0.5rem;
+        margin: 0.5rem;
+        border: 1px solid black;
+    }
+    .button:hover {cursor: pointer;}
+</style>
