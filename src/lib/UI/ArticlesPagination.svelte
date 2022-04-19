@@ -41,11 +41,11 @@
 
 <div class="buttons has-addons is-centered">
     {#if typeof categ === 'string'}
-         <span class="button" on:click={() => goToCateg(categ)}>{categ}</span>
+         <span class="button" on:click={() => goToCateg(categ)}>{categ}</span> &nbsp; |
     {/if}
 
     {#if typeof categ === 'object'}
-        <span class="button" on:click={() => goToCateg(categ)}>{categ.title}</span>
+        <span class="button" on:click={() => goToCateg(categ)}>{categ.title}</span> &nbsp; |
     {/if}
     
     {#if itemId && length > 0}
