@@ -2,7 +2,7 @@
     export const load = async ({fetch, params, stuff}) => {
         const {item} = await (await fetch(`/api/blog/${params.id}`)).json()
         const {blog} = stuff
-        console.log('laoding item:', item, {blog})
+        // console.log('laoding item:', item, {blog})
         return {
             props: {
                 item,
